@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Miles Per Gallon Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="calculator">
+    <img src="young-woman-holding-calculator-portrait-AX5PN0.jpg" alt="Calculator Icon">
+    <h2>Miles Per Gallon Calculator</h2>
+
+    <label for="miles">Miles Traveled:</label>
+    <input type="number" id="miles" placeholder="Enter miles traveled">
+
+    <label for="gallons">Gallons Used:</label>
+    <input type="number" id="gallons" placeholder="Enter gallons used">
+
+    <button onclick="calculateMPG()">=</button>
+
+    <div id="result">Your Miles per gallon is:</div>
+    <div class="signature">Created by Niuskary Salazar Castillo</div>
+  </div>
+
+  <script>
+    function calculateMPG() {
+      const miles = parseFloat(document.getElementById('miles').value);
+      const gallons = parseFloat(document.getElementById('gallons').value);
+      const resultDiv = document.getElementById('result');
+
+      if (isNaN(miles) || isNaN(gallons) || gallons <= 0) {
+        resultDiv.style.color = 'red';
+        resultDiv.innerText = "Please enter valid numbers. Gallons must be greater than zero.";
+        return;
+      }
+
+      const mpg = miles / gallons;
+      resultDiv.style.color = '#444';
+      resultDiv.innerText = `Your Miles per gallon is: ${mpg.toFixed(2)}`;
+    }
+  </script>
+
+</body>
+</html>
